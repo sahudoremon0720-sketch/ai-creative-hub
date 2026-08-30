@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Creative Hub — Premium AI Resources</title>
+<meta name="description" content="AI Creative Hub — Premium AI prompts, video ideas, advertisements, thumbnails, hooks, Reel concepts and AI posters. Every resource for just ₹9.">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#07070a;
+  color:#fff;
+  line-height:1.6;
+}
+
+button{
+  font-family:inherit;
+}
+
+.container{
+  width:min(1150px,92%);
+  margin:auto;
+}
+
+/* NAVBAR */
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(7,7,10,.85);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid #202027;
+}
+
+.nav{
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-size:21px;
+  font-weight:900;
+}
+
+.logo span{
+  color:#8b5cf6;
+}
+
+.cart-btn{
+  background:#121218;
+  color:#fff;
+  border:1px solid #292934;
+  padding:10px 15px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.cart-count{
+  background:#8b5cf6;
+  padding:2px 7px;
+  border-radius:20px;
+  margin-left:4px;
+}
+
+/* HERO */
+
+.hero{
+  text-align:center;
+  padding:100px 0 70px;
+}
+
+.badge{
+  display:inline-block;
+  padding:8px 15px;
+  border:1px solid #292934;
+  background:#111116;
+  border-radius:50px;
+  color:#cfc4ff;
+  font-size:13px;
+  margin-bottom:22px;
+}
+
+.hero h1{
+  font-size:clamp(44px,8vw,80px);
+  line-height:1;
+  letter-spacing:-4px;
+}
+
+.gradient{
+  background:linear-gradient(90deg,#a78bfa,#22d3ee);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.hero p{
+  max-width:680px;
+  margin:25px auto 0;
+  color:#a7a7b2;
+  font-size:17px;
+}
+
+/* SEARCH */
+
+.search{
+  max-width:650px;
+  margin:10px auto 55px;
+}
+
+.search input{
+  width:100%;
+  padding:17px 20px;
+  background:#111116;
+  border:1px solid #292934;
+  border-radius:13px;
+  color:#fff;
+  outline:none;
+  font-size:15px;
+}
+
+.search input:focus{
+  border-color:#8b5cf6;
+}
+
+/* PRODUCTS */
+
+.section-title{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.section-title h2{
+  font-size:38px;
+  letter-spacing:-1px;
+}
+
+.section-title p{
+  color:#9999a5;
+  margin-top:7px;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.card{
+  background:linear-gradient(145deg,#111116,#0d0d11);
+  border:1px solid #22222b;
+  border-radius:18px;
+  padding:22px;
+  transition:.25s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  border-color:#51466d;
+}
+
+.card-icon{
+  font-size:34px;
+  margin-bottom:14px;
+}
+
+.tag{
+  display:inline-block;
+  font-size:11px;
+  padding:5px 9px;
+  border-radius:30px;
+  background:#21183b;
+  color:#cbbcff;
+  margin-bottom:12px;
+}
+
+.card h3{
+  font-size:19px;
+  margin-bottom:9px;
+}
+
+.preview{
+  color:#9999a5;
+  font-size:14px;
+  margin-bottom:17px;
+}
+
+.locked{
+  background:#0a0a0e;
+  border:1px dashed #30303a;
+  border-radius:10px;
+  padding:12px;
+  color:#73737e;
+  font-size:13px;
+  margin-bottom:18px;
+}
+
+.price-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.price{
+  font-size:23px;
+  font-weight:900;
+}
+
+.buy{
+  background:#fff;
+  color:#000;
+  border:0;
+  padding:11px 16px;
+  border-radius:9px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.buy:hover{
+  transform:scale(1.04);
+}
+
+/* MODALS */
+
+.overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:3000;
+  background:rgba(0,0,0,.78);
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.overlay.active{
+  display:flex;
+}
+
+.modal{
+  width:min(510px,100%);
+  max-height:90vh;
+  overflow:auto;
+  background:#111116;
+  border:1px solid #292934;
+  border-radius:20px;
+  padding:28px;
+  box-shadow:0 20px 80px rgba(0,0,0,.6);
+}
+
+.modal-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:20px;
+}
+
+.close{
+  background:none;
+  border:0;
+  color:#aaa;
+  font-size:25px;
+  cursor:pointer;
+}
+
+/* CART */
+
+.cart-item{
+  background:#0b0b0f;
+  border:1px solid #24242c;
+  padding:15px;
+  border-radius:12px;
+  margin-bottom:10px;
+}
+
+.cart-item-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.cart-item p{
+  color:#858590;
+  font-size:13px;
+  margin-top:4px;
+}
+
+.remove{
+  background:none;
+  border:0;
+  color:#ff7777;
+  cursor:pointer;
+}
+
+.total{
+  display:flex;
+  justify-content:space-between;
+  font-size:20px;
+  font-weight:900;
+  margin:20px 0;
+}
+
+.pay-btn{
+  width:100%;
+  padding:15px;
+  border:0;
+  border-radius:11px;
+  background:linear-gradient(90deg,#8b5cf6,#06b6d4);
+  color:#fff;
+  font-weight:900;
+  cursor:pointer;
+}
+
+/* SUCCESS */
+
+.success{
+  text-align:center;
+}
+
+.success-icon{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  background:#17291d;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:32px;
+  margin:0 auto 20px;
+}
+
+.unlocked{
+  text-align:left;
+  background:#08080b;
+  border:1px solid #30303a;
+  border-radius:12px;
+  padding:17px;
+  margin-top:20px;
+  color:#ddd;
+  font-size:14px;
+  line-height:1.7;
+}
+
+.copy{
+  width:100%;
+  margin-top:10px;
+  padding:11px;
+  border:0;
+  border-radius:9px;
+  background:#fff;
+  color:#000;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.continue{
+  width:100%;
+  margin-top:10px;
+  padding:11px;
+  border:1px solid #292934;
+  border-radius:9px;
+  background:#17171e;
+  color:#fff;
+  cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+  margin-top:100px;
+  padding:35px 0;
+  border-top:1px solid #202027;
+  text-align:center;
+  color:#777783;
+  font-size:13px;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+  .products{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:600px){
+  .products{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    letter-spacing:-2px;
+  }
+
+  .hero{
+    padding-top:70px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+<div class="container nav">
+
+  <div class="logo">
+    AI<span>Creative</span>Hub
+  </div>
+
+  <button class="cart-btn" onclick="openCart()">
+    🛒 Cart
+    <span class="cart-count" id="cartCount">0</span>
+  </button>
+
+</div>
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="container">
+
+  <div class="badge">
+    ✦ Premium AI Resources
+  </div>
+
+  <h1>
+    Create <span class="gradient">Something Different.</span>
+  </h1>
+
+  <p>
+    Premium AI prompts, video ideas, advertisements,
+    hooks, thumbnails, Reel concepts and poster ideas.
+    Every resource is just <strong>₹9</strong>.
+  </p>
+
+</div>
+
+</section>
+
+
+<!-- SEARCH -->
+
+<div class="container">
+
+<div class="search">
+
+<input
+  id="search"
+  type="text"
+  placeholder="🔍 Search AI prompts, videos, hooks..."
+  oninput="searchProducts()">
+
+</div>
+
+</div>
+
+
+<!-- PRODUCTS -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+
+  <h2>Premium AI Library</h2>
+
+  <p>
+    Choose any resource — only ₹9 per unit.
+  </p>
+
+</div>
+
+
+<div class="products" id="products">
+
+
+<!-- PRODUCT 1 -->
+
+<div class="card"
+data-search="ai prompt cinematic product advertisement">
+
+<div class="card-icon">🤖</div>
+
+<span class="tag">AI Prompt</span>
+
+<h3>Cinematic Product Ad</h3>
+
+<div class="preview">
+Create a premium cinematic advertisement for almost any product...
+</div>
+
+<div class="locked">
+🔒 Full prompt locked
+</div>
+
+<div class="price-row">
+
+<div class="price">₹9</div>
+
+<button class="buy"
+onclick="addToCart(
+'Cinematic Product Ad',
+'AI Prompt',
+'Create a premium cinematic advertisement with dramatic lighting, realistic product details, dynamic camera movement and a luxury commercial atmosphere.'
+)">
+Buy Now
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 2 -->
+
+<div class="card"
+data-search="ai video futuristic video idea">
+
+<div class="card-icon">🎬</div>
+
+<span class="tag">Video Idea</span>
+
+<h3>Impossible Future</h3>
+
+<div class="preview">
+A cinematic AI video concept based on a world where impossible technology exists...
+</div>
+
+<div class="locked">
+🔒 Full concept locked
+</div>
+
+<div class="price-row">
+
+<div class="price">₹9</div>
+
+<button class="buy"
+onclick="addToCart(
+'Impossible Future',
+'AI Video Idea',
+'Create a cinematic world where impossible technology becomes normal. Reveal the concept through a visually surprising transformation.'
+)">
+Buy Now
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 3 -->
+
+<div class="card"
+data-search="advertisement marketing brand ai ad">
+
+<div class="card-icon">📢</div>
+
+<span class="tag">Advertisement</span>
+
+<h3>Future Brand Commercial</h3>
+
+<div class="preview">
+Turn an ordinary product into a futuristic premium commercial...
+</div>
+
+<div class="locked">
+🔒 Full concept locked
+</div>
+
+<div class="price-row">
+
+<div class="price">₹9</div>
+
+<button class="buy"
+onclick="addToCart(
+'Future Brand Commercial',
+'Advertisement',
+'Transform a simple product into a futuristic cinematic commercial with premium storytelling, dramatic lighting and memorable visual transitions.'
+)">
+Buy Now
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 4 -->
+
+<div class="card"
+data-search="thumbnail youtube thumbnail concept">
+
+<div class="card-icon">🖼️</div>
+
+<span class="tag">Thumbnail</span>
+
+<h3>Impossible Challenge</h3>
+
+<div class="preview">
+A curiosity-driven thumbnail concept designed to make viewers stop scrolling...
+</div>
+
+<div class="locked">
+🔒 Full concept locked
+</div>
+
+<div class="price-row">
+
+<div class="price">₹9</div>
+
+<button class="buy"
+onclick="addToCart(
+'Impossible Challenge',
+'Thumbnail',
+'Create a high-curiosity thumbnail showing one impossible visual event, an extreme reaction and a strong unanswered question.'
+)">
+Buy Now
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 5 -->
+
+<div class="card"
+data-search="viral hook instagram reel hook">
+
+<div class="card-icon">⚡</div>
+
+<span class="tag">Hook</span>
+
+<h3>Stop-Scrolling Hook</h3>
+
+<div class="preview">
+A powerful opening concept designed to grab attention immediately...
+</div>
+
+<div class="locked">
+🔒 Full hook locked
+</div>
+
+<div class="price-row">
+
+<div class="price">₹9</div>
+
+<button class="buy"
+onclick="addToCart(
+'Stop-Scrolling Hook',
+'Hook',
+'Create powerful short-form hooks using curiosity, surprise, contradiction, bold claims and unanswered questions.'
+)">
+Buy Now
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 6 -->
+
+<div class="card"
+data-search="reel instagram short video concept">
+
+<div class="card-icon">📱</div>
+
+<span class="tag">Reel Concept</span>
+
+<h3>Reality vs AI</h3>
+
+<div class="preview">
+Transform an ordinary real-world scene into an unbelievable AI version...
+</div>
+
+<div class="locked">
+🔒 Full concept locked
+</div>
+
+<div class="price-row">
+
+<div class="price">₹9</div>
+
+<button class="buy"
+onclick="addToCart(
+'Reality vs AI',
+'Reel Concept',
+'Show a normal everyday scene and transform it into an impossible cinematic AI version with a strong before-and-after reveal.'
+)">
+Buy Now
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 7 -->
+
+<div class="card"
+data-search="ai poster design poster prompt">
+
+<div class="card-icon">🎨</div>
+
+<span class="tag">AI Poster</span>
+
+<h3>Future City Poster</h3>
+
+<div class="preview">
+A cinematic poster concept featuring a futuristic city above the clouds...
+</div>
+
+<div class="locked">
+🔒 Full prompt locked
+</div>
+
+<div class="price-row">
+
+<div class="price">₹9</div>
+
+<button class="buy"
+onclick="addToCart(
+'Future City Poster',
+'AI Poster',
+'Create an ultra-detailed cinematic poster of a futuristic city floating above the clouds with dramatic atmosphere and premium composition.'
+)">
+Buy Now
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 8 -->
+
+<div class="card"
+data-search="creative ai content idea">
+
+<div class="card-icon">💡</div>
+
+<span class="tag">Creative Idea</span>
+
+<h3>Impossible Object</h3>
+
+<div class="preview">
+Take an ordinary object and place it somewhere it could never realistically exist...
+</div>
+
+<div class="locked">
+🔒 Full idea locked
+</div>
+
+<div class="price-row">
+
+<div class="price">₹9</div>
+
+<button class="buy"
+onclick="addToCart(
+'Impossible Object',
+'Creative Idea',
+'Take an ordinary object and place it somewhere it could never realistically exist. Make the result believable, cinematic and visually surprising.'
+)">
+Buy Now
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 9 -->
+
+<div class="card"
+data-search="ai content viral prompt generator">
+
+<div class="card-icon">🔥</div>
+
+<span class="tag">AI Prompt</span>
+
+<h3>Viral Idea Generator</h3>
+
+<div class="preview">
+Generate original short-form content ideas using curiosity, surprise and storytelling...
+</div>
+
+<div class="locked">
+🔒 Full prompt locked
+</div>
+
+<div class="price-row">
+
+<div class="price">₹9</div>
+
+<button class="buy"
+onclick="addToCart(
+'Viral Idea Generator',
+'AI Prompt',
+'Generate 20 original short-form content ideas using curiosity, surprise, storytelling and strong visual impact. Avoid generic concepts.'
+)">
+Buy Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CART -->
+
+<div class="overlay" id="cartModal">
+
+<div class="modal">
+
+<div class="modal-header">
+
+<h2>🛒 Your Cart</h2>
+
+<button class="close" onclick="closeCart()">×</button>
+
+</div>
+
+<div id="cartItems"></div>
+
+<div class="total">
+
+<span>Total</span>
+
+<span id="cartTotal">₹0</span>
+
+</div>
+
+<button class="pay-btn" onclick="openCheckout()">
+Continue to Checkout →
+</button>
+
+</div>
+
+</div>
+
+
+<!-- CHECKOUT -->
+
+<div class="overlay" id="checkoutModal">
+
+<div class="modal">
+
+<div class="modal-header">
+
+<h2>Checkout</h2>
+
+<button class="close" onclick="closeCheckout()">×</button>
+
+</div>
+
+<p style="color:#9999a5;font-size:14px;">
+Review your selected AI resources.
+</p>
+
+<div id="checkoutItems" style="margin-top:15px;"></div>
+
+<div class="total">
+
+<span>Total</span>
+
+<span id="checkoutTotal">₹0</span>
+
+</div>
+
+<button class="pay-btn" onclick="startPayment()">
+🔒 Pay ₹9 Securely
+</button>
+
+<p style="text-align:center;color:#777783;font-size:12px;margin-top:13px;">
+Secure payment gateway will be connected here.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- SUCCESS -->
+
+<div class="overlay" id="successModal">
+
+<div class="modal success">
+
+<div class="success-icon">
+✓
+</div>
+
+<h2>Purchase Successful!</h2>
+
+<p style="color:#9999a5;margin-top:7px;">
+Your AI resource has been unlocked.
+</p>
+
+<div class="unlocked" id="unlockedPrompt"></div>
+
+<button class="copy" onclick="copyUnlocked()">
+Copy Full Resource
+</button>
+
+<button class="continue" onclick="closeSuccess()">
+Continue Browsing
+</button>
+
+</div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container">
+
+<strong style="color:white;">
+AI Creative Hub
+</strong>
+
+<p style="margin-top:7px;">
+Premium AI resources for creators.
+</p>
+
+<p style="margin-top:8px;">
+© 2026 AI Creative Hub
+</p>
+
+</div>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   STORE CONFIG
+========================= */
+
+const PRICE = 9;
+
+let cart = [];
+
+let purchasedResource = "";
+
+
+/* =========================
+   ADD TO CART
+========================= */
+
+function addToCart(name, category, content){
+
+  const alreadyAdded =
+    cart.some(item => item.name === name);
+
+  if(!alreadyAdded){
+
+    cart.push({
+      name:name,
+      category:category,
+      content:content,
+      price:PRICE
+    });
+
+  }
+
+  updateCart();
+
+  openCart();
+}
+
+
+/* =========================
+   UPDATE CART
+========================= */
+
+function updateCart(){
+
+  document.getElementById("cartCount").innerText =
+    cart.length;
+
+  const container =
+    document.getElementById("cartItems");
+
+
+  if(cart.length === 0){
+
+    container.innerHTML =
+      '<p style="color:#9999a5;">Your cart is empty.</p>';
+
+    document.getElementById("cartTotal").innerText =
+      "₹0";
+
+    return;
+  }
+
+
+  container.innerHTML =
+    cart.map((item,index)=>`
+
+      <div class="cart-item">
+
+        <div class="cart-item-top">
+
+          <div>
+
+            <strong>${item.name}</strong>
+
+            <p>${item.category}</p>
+
+          </div>
+
+          <strong>₹${PRICE}</strong>
+
+        </div>
+
+        <button
+          class="remove"
+          onclick="removeItem(${index})">
+          Remove
+        </button>
+
+      </div>
+
+    `).join("");
+
+
+  document.getElementById("cartTotal").innerText =
+    "₹" + (cart.length * PRICE);
+
+}
+
+
+/* =========================
+   REMOVE
+========================= */
+
+function removeItem(index){
+
+  cart.splice(index,1);
+
+  updateCart();
+
+}
+
+
+/* =========================
+   CART MODAL
+========================= */
+
+function openCart(){
+
+  document
+    .getElementById("cartModal")
+    .classList.add("active");
+
+}
+
+function closeCart(){
+
+  document
+    .getElementById("cartModal")
+    .classList.remove("active");
+
+}
+
+
+/* =========================
+   CHECKOUT
+========================= */
+
+function openCheckout(){
+
+  if(cart.length === 0){
+
+    alert("Your cart is empty.");
+
+    return;
+
+  }
+
+
+  closeCart();
+
+
+  document.getElementById("checkoutItems").innerHTML =
+    cart.map(item=>`
+
+      <div class="cart-item">
+
+        <div class="cart-item-top">
+
+          <span>${item.name}</span>
+
+          <strong>₹${PRICE}</strong>
+
+        </div>
+
+      </div>
+
+    `).join("");
+
+
+  document.getElementById("checkoutTotal").innerText =
+    "₹" + (cart.length * PRICE);
+
+
+  document
+    .getElementById("checkoutModal")
+    .classList.add("active");
+
+}
+
+
+function closeCheckout(){
+
+  document
+    .getElementById("checkoutModal")
+    .classList.remove("active");
+
+}
+
+
+/* =========================
+   PAYMENT PLACEHOLDER
+========================= */
+
+function startPayment(){
+
+  const total =
+    cart.length * PRICE;
+
+
+  /*
+    REAL PAYMENT FLOW:
+
+    1. Frontend sends product IDs to backend.
+    2. Backend creates payment order.
+    3. Payment gateway opens.
+    4. Customer pays.
+    5. Gateway returns payment information.
+    6. Backend verifies the payment.
+    7. Backend confirms purchase.
+    8. Purchased resource is delivered.
+
+    NEVER unlock paid content only because
+    JavaScript says "payment successful".
+  */
+
+
+  const demo =
+    confirm(
+      "DEMO CHECKOUT\n\n" +
+      "Your total is ₹" + total +
+      ".\n\n" +
+      "This will simulate a successful payment."
+    );
+
+
+  if(demo){
+
+    simulatePaymentSuccess();
+
+  }
+
+}
+
+
+/* =========================
+   SUCCESS
+========================= */
+
+function simulatePaymentSuccess(){
+
+  closeCheckout();
+
+
+  if(cart.length === 0){
+    return;
+  }
+
+
+  /*
+    Demo unlocks the first purchased item.
+    Production version should unlock every
+    resource whose payment has been verified.
+  */
+
+  purchasedResource =
+    cart[0].content;
+
+
+  document.getElementById("unlockedPrompt").innerText =
+    purchasedResource;
+
+
+  document
+    .getElementById("successModal")
+    .classList.add("active");
+
+
+  cart = [];
+
+  updateCart();
+
+}
+
+
+/* =========================
+   COPY RESOURCE
+========================= */
+
+function copyUnlocked(){
+
+  navigator.clipboard
+    .writeText(purchasedResource)
+    .then(()=>{
+
+      alert("Resource copied successfully! ✓");
+
+    })
+    .catch(()=>{
+
+      alert("Copy failed.");
+
+    });
+
+}
+
+
+/* =========================
+   CLOSE SUCCESS
+========================= */
+
+function closeSuccess(){
+
+  document
+    .getElementById("successModal")
+    .classList.remove("active");
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+function searchProducts(){
+
+  const query =
+    document
+      .getElementById("search")
+      .value
+      .toLowerCase()
+      .trim();
+
+
+  document
+    .querySelectorAll(".card")
+    .forEach(card=>{
+
+      const searchableText =
+        card.dataset.search.toLowerCase();
+
+      card.style.display =
+        searchableText.includes(query)
+          ? "block"
+          : "none";
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
